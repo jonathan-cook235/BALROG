@@ -18,15 +18,16 @@ ACTION_DICT = {
     "Make Wood Sword": "craft a wood sword with a nearby table and wood in inventory",
     "Make Stone Sword": "craft a stone sword with a nearby table, wood, and stone in inventory",
     "Make Iron Sword": "craft an iron sword with a nearby table and furnace, wood, coal, and iron in inventory",
+    "Plan": "make a plan for completing the game when uncertain about what to do next"
 }
-
-
 def get_instruction_prompt(task=None):
     action_strings = ",\n".join(f"{action}: {ACTION_DICT[action]}" for action in ACTIONS)
     instruction_prompt = f"""
 You are an agent playing Crafter. The following are the only valid actions you can take in the game, followed by a short description of each action:
 
 {action_strings}.
+
+You can use the `Plan' action a maximum of <budget> times throughout the game.
 
 These are the game achievements you can get:
 1. Collect Wood
@@ -57,5 +58,4 @@ Your goal is to get as far as possible by completing all the achievements.
 
 PLAY!
 """.strip()
-
     return instruction_prompt
