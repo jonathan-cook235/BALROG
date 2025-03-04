@@ -7,6 +7,7 @@ ACTIONS = {
     "pick up": "pick up the object below you",
     "drop": "drop the object that you are holding",
     "toggle": "manipulate the object in front of you",
+    "plan": "make a plan for completing the game when uncertain about what to do next"
 }
 
 
@@ -17,6 +18,8 @@ def get_instruction_prompt(env, mission="BabyAI-MixedTrainLocal-v0"):
 You are an agent playing a simple navigation game. Your goal is to {mission}. The following are the possible actions you can take in the game, followed by a short description of each action:
 
 {action_strings}.
+
+You can use the `plan' action a maximum of <budget> times.
 
 In a moment I will present you an observation.
 

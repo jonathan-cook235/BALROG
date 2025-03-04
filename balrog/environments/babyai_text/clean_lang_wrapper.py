@@ -8,6 +8,7 @@ BABYAI_ACTION_SPACE = [
     "pick up",
     "drop",
     "toggle",
+    "plan"
 ]
 
 
