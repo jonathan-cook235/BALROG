@@ -1,12 +1,13 @@
 from .clean_lang_wrapper import BabyAITextCleanLangWrapper
 
 PLAN_INSTRUCTION = """
-Make a high-level plan for completing the task. Your plan can include reasoning about how to solve the task.
+Instead of a normal action, you have the option to make a high-level plan for completing the task. 
+Your plan should include reasoning about how to solve the task.
 Output your plan strictly in the following format:
 
 <plan>YOUR_PLAN</plan>
 
-Replace YOUR_PLAN with your own thinking and plan. Output no other text, as the generating a plan is considered a single action.
+Replace YOUR_PLAN with your own thinking and plan. Output no other text.
 """.strip()
 
 ACTIONS = {
