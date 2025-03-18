@@ -1,5 +1,14 @@
 from .clean_lang_wrapper import BabyAITextCleanLangWrapper
 
+PLAN_INSTRUCTION = """
+Make a high-level plan for completing the task. Your plan can include reasoning about how to solve the task.
+Output your plan strictly in the following format:
+
+<plan>YOUR_PLAN</plan>
+
+Replace YOUR_PLAN with your own thinking and plan. Output no other text, as the generating a plan is considered a single action.
+""".strip()
+
 ACTIONS = {
     "turn left": "turn to the left",
     "turn right": "turn to the right",
@@ -7,7 +16,7 @@ ACTIONS = {
     "pick up": "pick up the object below you",
     "drop": "drop the object that you are holding",
     "toggle": "manipulate the object in front of you",
-    "plan": "make a plan for completing the game when uncertain about what to do next"
+    "<plan>": PLAN_INSTRUCTION
 }
 
 
@@ -18,8 +27,6 @@ def get_instruction_prompt(env, mission="BabyAI-MixedTrainLocal-v0"):
 You are an agent playing a simple navigation game. Your goal is to {mission}. The following are the possible actions you can take in the game, followed by a short description of each action:
 
 {action_strings}.
-
-You can use the `plan' action a maximum of <budget> times.
 
 In a moment I will present you an observation.
 
