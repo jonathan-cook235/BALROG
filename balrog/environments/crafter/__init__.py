@@ -28,7 +28,7 @@ ACTION_DICT = {
     "Make Wood Sword": "craft a wood sword with a nearby table and wood in inventory",
     "Make Stone Sword": "craft a stone sword with a nearby table, wood, and stone in inventory",
     "Make Iron Sword": "craft an iron sword with a nearby table and furnace, wood, coal, and iron in inventory",
-    "Plan": PLAN_INSTRUCTION
+    "<plan>": PLAN_INSTRUCTION
 }
 
 def get_instruction_prompt(task=None):
