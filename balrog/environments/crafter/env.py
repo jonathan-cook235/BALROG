@@ -25,7 +25,7 @@ ACTIONS = [
     "Make Wood Sword",
     "Make Stone Sword",
     "Make Iron Sword",
-    "Plan"
+    "<plan>"
 ]
 
 id_to_item = [0] * 19

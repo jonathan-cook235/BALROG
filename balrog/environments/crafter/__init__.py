@@ -1,5 +1,15 @@
 from .env import ACTIONS, CrafterLanguageWrapper
 
+PLAN_INSTRUCTION = """
+Instead of a normal action, you have the option to make a high-level plan for completing the task. 
+Your plan should include reasoning about how to solve the task.
+Output your plan strictly in the following format:
+
+<plan>YOUR_PLAN</plan>
+
+Replace YOUR_PLAN with your own thinking and plan. Output no other text.
+""".strip()
+
 ACTION_DICT = {
     "Noop": "do nothing",
     "Move West": "move west on flat ground",
@@ -18,8 +28,9 @@ ACTION_DICT = {
     "Make Wood Sword": "craft a wood sword with a nearby table and wood in inventory",
     "Make Stone Sword": "craft a stone sword with a nearby table, wood, and stone in inventory",
     "Make Iron Sword": "craft an iron sword with a nearby table and furnace, wood, coal, and iron in inventory",
-    "Plan": "make a plan for completing the game when uncertain about what to do next"
+    "Plan": PLAN_INSTRUCTION
 }
+
 def get_instruction_prompt(task=None):
     action_strings = ",\n".join(f"{action}: {ACTION_DICT[action]}" for action in ACTIONS)
     instruction_prompt = f"""
